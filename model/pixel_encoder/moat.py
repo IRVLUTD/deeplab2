@@ -208,7 +208,7 @@ class MOAT(tf.keras.Model):
           survival_prob=survival_prob)
     return local_block_config
 
-  def build(self, input_shape: list[int]) -> None:
+  def build(self, input_shape: list) -> None:
     norm_class = tf.keras.layers.experimental.SyncBatchNormalization
     self._config.norm_class = norm_class
     self._config.activation = tf.nn.gelu
@@ -346,11 +346,11 @@ no_relative_pe = Config(
 
 def get_model(
     name: str,
-    input_shape: list[int],
-    window_size: Optional[list[list[int]]] = None,
+    input_shape: list,
+    window_size: Optional[list] = None,
     survival_rate: Optional[float] = None,
     pool_size: Optional[int] = 3,
-    override_config: Optional[dict[str, Any]] = None,
+    override_config: Optional[dict] = None,
     pretrained_weights_path: Optional[str] = None,
     remove_position_embedding: Optional[bool] = None,
     return_config: Optional[bool] = False,

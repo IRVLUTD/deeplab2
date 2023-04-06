@@ -201,7 +201,7 @@ class MBConvBlock(tf.keras.layers.Layer):
     self._activation_fn = self._config.activation
     self._norm_class = self._config.norm_class
 
-  def build(self, input_shape: list[int]) -> None:
+  def build(self, input_shape: list) -> None:
     input_size = input_shape[-1]
     inner_size = self._config.hidden_size * self._config.expansion_rate
 
@@ -378,7 +378,7 @@ class MOATBlock(tf.keras.layers.Layer):
     self._activation_fn = self._config.activation
     self._norm_class = self._config.norm_class
 
-  def build(self, input_shape: list[int]) -> None:
+  def build(self, input_shape: list) -> None:
     height, width, input_size = input_shape[-3:]
     inner_size = self._config.hidden_size * self._config.expansion_rate
 
